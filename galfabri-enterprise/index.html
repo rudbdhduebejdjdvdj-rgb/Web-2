@@ -81,6 +81,26 @@ if(host){
  const resize=()=>{const w=host.clientWidth,h=host.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);renderer.setPixelRatio(Math.min(devicePixelRatio,2));};new ResizeObserver(resize).observe(host);
  const presets={front:[0,4.4,10],side:[10,4.1,0],top:[.1,12,.1]};host.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{host.querySelectorAll('[data-view]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const p=presets[b.dataset.view];camera.position.set(...p);controls.target.set(0,2.5,0);controls.update()}));
  host.querySelector('#robotReset').addEventListener('click',()=>{camera.position.set(6.8,4.8,8.5);controls.target.set(0,2.5,0);controls.update();host.querySelectorAll('[data-view]').forEach(x=>x.classList.remove('active'));host.querySelector('[data-view="front"]').classList.add('active')});
- let t=0;function animate(){requestAnimationFrame(animate);t+=.008;shoulder.rotation.y=Math.sin(t*.45)*.08;upper.rotation.z=Math.sin(t*.6)*.035;fore.rotation.z=Math.sin(t*.7)*.045;wrist2.rotation.y=Math.sin(t*.55)*.12;controls.update();renderer.render(scene,camera)}animate();
+ // Pose de presentación: brazo elevado, codo flexionado y pinza orientada hacia el frente.
+ shoulder.rotation.y=-.16;
+ shoulder.rotation.z=-.22;
+ upper.rotation.z=-.52;
+ fore.rotation.z=.92;
+ wrist2.rotation.y=.28;
+ wrist2.rotation.z=-.18;
+ tool.rotation.z=-.12;
+ let t=0;
+ function animate(){
+  requestAnimationFrame(animate);
+  t+=.008;
+  // Movimiento sutil para que parezca una máquina en espera activa, sin quedar rígida.
+  shoulder.rotation.y=-.16+Math.sin(t*.34)*.025;
+  upper.rotation.z=-.52+Math.sin(t*.42)*.018;
+  fore.rotation.z=.92+Math.sin(t*.38)*.025;
+  wrist2.rotation.y=.28+Math.sin(t*.5)*.045;
+  controls.update();
+  renderer.render(scene,camera)
+ }
+ animate();
 }
 </script></body></html>
