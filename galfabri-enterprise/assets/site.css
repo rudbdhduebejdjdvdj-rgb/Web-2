@@ -35,21 +35,3 @@ body:before{content:"";position:fixed;z-index:50;top:0;left:0;width:100%;height:
 .section:after{content:"";display:block;width:42px;height:1px;background:var(--acid);opacity:.5;margin-top:48px}
 @media(max-width:800px){.reveal{transform:translate3d(0,26px,0) scale(.99);transition-duration:.7s}.heroimg{transform:none}.robot-loading{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.reveal{filter:none;transform:none;opacity:1;transition:none}.heroimg,.heroimg img{transform:none!important}body:before{display:none}}
-
-
-/* Six-axis live joint control panel */
-.joint-panel{margin:18px 0 0;padding:26px 28px 22px;background:linear-gradient(135deg,#182629,#10191b);border:1px solid #ffffff20}
-.joint-panel-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}
-.joint-panel-head h3{font-size:23px;margin:8px 0 0;letter-spacing:-.045em}
-.joint-panel-head button{background:transparent;color:var(--acid);border:1px solid #c9f16b70;padding:12px 15px;font:10px 'DM Mono';cursor:pointer}
-.joint-panel-head button:hover{background:var(--acid);color:#111a19}
-.joint-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 28px}
-.joint-control{display:block;min-width:0}
-.joint-control>span{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;font-size:12px;color:#e7eee8}
-.joint-control output{font:11px 'DM Mono';color:var(--acid);font-variant-numeric:tabular-nums}
-.joint-control input{appearance:none;-webkit-appearance:none;width:100%;height:4px;border-radius:0;background:#53615d;display:block;cursor:pointer;accent-color:var(--acid)}
-.joint-control input::-webkit-slider-thumb{appearance:none;width:16px;height:16px;border-radius:50%;background:var(--acid);border:3px solid #192528;box-shadow:0 0 0 1px var(--acid)}
-.joint-control input::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--acid);border:3px solid #192528;box-shadow:0 0 0 1px var(--acid)}
-.joint-help{font-size:11px;color:#9eada6;line-height:1.7;margin:22px 0 0}
-@media(max-width:800px){.joint-panel{padding:20px 16px}.joint-panel-head{align-items:flex-start;flex-direction:column}.joint-grid{grid-template-columns:1fr 1fr;gap:20px 16px}.joint-panel-head h3{font-size:20px}.joint-control>span{font-size:11px}}
-@media(max-width:390px){.joint-grid{grid-template-columns:1fr}}
